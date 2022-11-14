@@ -1,5 +1,6 @@
 var colors = require('colors');
 var moment = require('moment');
+var CircularJSON = require('circular-json');
 
 var eventHandlers = {
 
@@ -12,7 +13,7 @@ var eventHandlers = {
    */
 
   onNewOutage: function (service, outage) {
-    var errorMsg = service.name + ' down!'.red + '. Error: ' + JSON.stringify(outage.error).red;
+    var errorMsg = service.name + ' down!'.red + '. Error: ' + CircularJSON.stringify(outage.error).red;
     console.log(errorMsg);
   },
 
@@ -25,7 +26,7 @@ var eventHandlers = {
    */
 
   onCurrentOutage: function (service, outage) {
-    var errorMsg = service.name + ' is still down!'.red + '. Error: ' + JSON.stringify(outage.error).red;
+    var errorMsg = service.name + ' is still down!'.red + '. Error: ' + CircularJSON.stringify(outage.error).red;
     console.log(errorMsg);
   },
 
@@ -38,7 +39,7 @@ var eventHandlers = {
    */
 
   onFailedCheck: function (service, data) {
-    var errorMsg = service.name + ' check failed!'.red + '. Error: ' + JSON.stringify(data.error).red;
+    var errorMsg = service.name + ' check failed!'.red + '. Error: ' + CircularJSON.stringify(data.error).red;
     console.log(errorMsg);
   },
 
@@ -63,7 +64,7 @@ var eventHandlers = {
    */
 
   onServiceBack: function (service, lastOutage) {
-    var duration = moment.duration(+new Date() - lastOutage.timestamp);
+    var duration = moment.duration(+new Date() - lastOutage.timestamp, 'seconds');
     console.log(service.name.white + ' is back'.green + '. Down for '.gray + duration.humanize().white);
   },
 

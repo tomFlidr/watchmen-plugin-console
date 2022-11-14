@@ -1,7 +1,7 @@
 {
-  "name": "watchmen-plugin-console",
-  "version": "0.2.0",
-  "description": "Console plugin for watchmen",
+  "name": "watchmen-plugin-console-circular-json",
+  "version": "0.2.2",
+  "description": "Console plugin for watchmen with circular JSON serialization",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +11,8 @@
     "url": "git://github.com/iloire/watchmen-plugin-console.git"
   },
   "author": "Ivan Loire",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "circular-json": "^0.5.9"
+  }
 }
